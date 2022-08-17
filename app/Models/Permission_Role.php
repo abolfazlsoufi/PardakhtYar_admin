@@ -9,18 +9,20 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Lumen\Auth\Authorizable;
 
-class Role_Permission extends Model
+class Permission_Role extends Model
 {
-    protected $table    = 'roles';
+    protected $table    = 'permission_role';
     protected $hidden   = [];
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
 
     public function permission()
     {
         return $this->belongsToMany(Permission::class);
     }
 
-    public function roles()
-    {
-        return $this->belongsToMany(Role::class);
-    }
+
 }

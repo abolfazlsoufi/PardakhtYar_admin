@@ -16,6 +16,13 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+$router->group(['prefix'=>'users'],function ($router){
+    $router->get('view','UserController@view');
+    $router->post('create','UserController@create');
+});
 
-$router->get('view','UserController@view');
-$router->post('create','UserController@create');
+$router->group(['prefix'=>'roles'],function ($router){
+    $router->get('view','RoleController@view');
+    $router->post('create','RoleController@create');
+    $router->put('update/{id}','RoleController@update');
+});

@@ -14,8 +14,9 @@ class Role extends Model
     protected $table    = 'roles';
     protected $hidden   = [];
 
-    public function user_role()
+    public function permission()
     {
-        return $this->belongsToMany(User_Role::class);
+        return $this->belongsToMany(Permission::class,'permission_role');
     }
+
 }

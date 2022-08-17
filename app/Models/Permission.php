@@ -11,11 +11,6 @@ use Laravel\Lumen\Auth\Authorizable;
 
 class Permission extends Model
 {
-    protected $table    = 'roles';
+    protected $table    = 'permissions';
     protected $hidden   = [];
-
-    public function role_permission()
-    {
-        return $this->belongsToMany(Role_Permission::class);
-    }
 }

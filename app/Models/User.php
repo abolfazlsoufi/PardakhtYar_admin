@@ -18,11 +18,6 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 
     public function roles()
     {
-        return $this->belongsToMany(Role::class,'user_role');
-    }
-
-    public function permission()
-    {
-        return $this->belongsToMany(Permission::class,'role_permission','role_id');
+        return $this->belongsToMany(Role::class,'role_user');
     }
 }
